@@ -16,7 +16,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Eternelle System <onboarding@resend.dev>',
-      to: ['imnoteverywhere12@gmail.com'],
+      to: ['rggamingsolutions@gmail.com'],
       replyTo: email,
       subject: `Nuevo contacto desde Eternelle System - ${name}`,
       html: `

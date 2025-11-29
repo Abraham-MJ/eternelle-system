@@ -70,7 +70,7 @@ export function NetworkBackground() {
 
           if (dist < 200) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(91, 124, 255, ${0.4 * (1 - dist / 200)})`;
+            ctx.strokeStyle = `rgba(40, 60, 180, ${0.7 * (1 - dist / 200)})`;
             ctx.lineWidth = 1;
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -81,8 +81,8 @@ export function NetworkBackground() {
 
       nodes.forEach((node) => {
         const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, 5);
-        gradient.addColorStop(0, "rgba(91, 124, 255, 0.8)");
-        gradient.addColorStop(1, "rgba(91, 124, 255, 0.2)");
+        gradient.addColorStop(0, "rgba(40, 60, 180, 1)");
+        gradient.addColorStop(1, "rgba(40, 60, 180, 0.4)");
 
         ctx.beginPath();
         ctx.fillStyle = gradient;
@@ -109,5 +109,5 @@ export function NetworkBackground() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-40" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />;
 }

@@ -231,7 +231,7 @@ export function Products() {
             ))}
           </div>
 
-          <div className="relative h-[600px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#1e1f35] to-[#2a2b45] shadow-2xl border border-gray-800">
+          <div className="relative h-full rounded-3xl overflow-hidden bg-gradient-to-br from-[#1e1f35] to-[#2a2b45] shadow-2xl border border-gray-800">
             <div className={`absolute inset-0 bg-gradient-to-br ${currentProduct?.gradient} opacity-10 transition-opacity duration-700`}></div>
             
             <div key={animateKey} className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center animate-[slideInFromRight_0.6s_ease-out]">
