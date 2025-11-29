@@ -71,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <link rel="preload" href="/hero-logo.svg" as="image" />
+        <link rel="preload" href="/hero-logo.png" as="image" />
         <style dangerouslySetInnerHTML={{__html: `
           body{margin:0;background:#F0F2F8}
           *{box-sizing:border-box}
