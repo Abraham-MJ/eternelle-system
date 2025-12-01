@@ -2,8 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { NetworkBackground } from "../NetworkBackground";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export function About() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
@@ -41,21 +43,23 @@ export function About() {
           }`}
         >
           <span className="inline-block px-4 py-2 bg-[#5b7cff]/10 text-[#5b7cff] rounded-full text-sm font-semibold">
-            Quiénes Somos
+            {t.about.badge}
           </span>
         </div>
 
         <p className="text-base text-gray-500 text-center mb-6 max-w-2xl mx-auto">
-          Construyendo el futuro del iGaming
+          {t.about.subtitle}
         </p>
 
         <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-16 text-center max-w-4xl mx-auto">
-          En{" "}
-          <span className="font-semibold text-[#5b7cff]">Eternelle System</span>{" "}
-          conectamos tecnología, visión y experiencia para impulsar la industria
-          del iGaming. Somos el socio estratégico que conecta a los Operadores
-          con soluciones globales de vanguardia, garantizando la escalabilidad y
-          el éxito sostenido de su negocio.
+          {t.about.description.split('Eternelle System').map((part, i, arr) => (
+            i < arr.length - 1 ? (
+              <span key={i}>
+                {part}
+                <span className="font-semibold text-[#5b7cff]">Eternelle System</span>
+              </span>
+            ) : part
+          ))}
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -86,18 +90,12 @@ export function About() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Misión</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.about.mission}</h3>
             <p className="text-gray-600 leading-relaxed text-[15px] mb-3">
-              Transformar la industria del iGaming con soluciones innovadoras
-              que impulsan el crecimiento de nuestros socios. A través de
-              soporte experto y arquitectura modular de alto rendimiento,
-              proporcionamos las herramientas necesarias para optimizar
-              operaciones y lograr una expansión sostenible y rentable.
+              {t.about.missionText1}
             </p>
             <p className="text-gray-600 leading-relaxed text-[15px]">
-              A través de soporte experto y arquitectura modular, proporcionamos
-              herramientas que escalan sin problemas, optimizando operaciones y
-              permitiendo un crecimiento sostenible.
+              {t.about.missionText2}
             </p>
           </div>
 
@@ -135,11 +133,9 @@ export function About() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Visión</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t.about.vision}</h3>
               <p className="text-gray-600 leading-relaxed text-[15px]">
-                Ser la referencia global en habla hispana, para servicios
-                integrales de gaming, reconocida por ofrecer la tecnología más
-                confiable y las alianzas más estratégicas del sector.
+                {t.about.visionText}
               </p>
             </div>
 
@@ -170,10 +166,9 @@ export function About() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Valores</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t.about.values}</h3>
               <p className="text-gray-600 leading-relaxed text-[15px]">
-                Innovación, confianza y excelencia en cada proyecto que
-                emprendemos con nuestros clientes.
+                {t.about.valuesText}
               </p>
             </div>
           </div>

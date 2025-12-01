@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useLanguage } from '@/components/LanguageProvider';
 
 export function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const { ref, isVisible } = useScrollAnimation();
@@ -36,16 +38,16 @@ export function Contact() {
       <div className="container mx-auto px-4">
         <div ref={ref} className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-[#5b7cff] to-[#a855f7] bg-clip-text text-transparent">
-          Contacto
+          {t.contact.title}
         </h2>
-        <p className="text-gray-400 text-center mb-12 text-lg">Estamos aquí para ayudarte</p>
+        <p className="text-gray-400 text-center mb-12 text-lg">{t.contact.subtitle}</p>
         </div>
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
           <form onSubmit={handleSubmit} className="space-y-6">
             <input
               type="text"
-              placeholder="Nombre"
+              placeholder={t.contact.name}
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -53,14 +55,14 @@ export function Contact() {
             />
             <input
               type="email"
-              placeholder="Correo"
+              placeholder={t.contact.email}
               required
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#5b7cff] transition-all"
             />
             <textarea
-              placeholder="Mensaje"
+              placeholder={t.contact.message}
               rows={5}
               required
               value={formData.message}
@@ -72,26 +74,26 @@ export function Contact() {
               disabled={status === 'sending'}
               className="w-full bg-gradient-to-r from-[#5b7cff] to-[#8b5cf6] text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-[#5b7cff]/50 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
             >
-              {status === 'sending' ? 'Enviando...' : 'Enviar'}
+              {status === 'sending' ? t.contact.sending : t.contact.send}
               
             </button>
             {status === 'success' && (
-              <p className="text-green-400 text-center">¡Mensaje enviado con éxito!</p>
+              <p className="text-green-400 text-center">{t.contact.success}</p>
             )}
             {status === 'error' && (
-              <p className="text-red-400 text-center">Error al enviar. Intenta de nuevo.</p>
+              <p className="text-red-400 text-center">{t.contact.error}</p>
             )}
           </form>
 
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-white mb-6">Contáctanos directamente</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">{t.contact.directContact}</h3>
             
             <a
               href="https://wa.me/593994107494"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all group"
-              aria-label="Contactar por WhatsApp"
+              aria-label={t.contact.ariaWhatsApp || t.footer.ariaWhatsApp}
             >
               <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
@@ -109,7 +111,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all group"
-              aria-label="Contactar por Telegram"
+              aria-label={t.contact.ariaTelegram || t.footer.ariaTelegram}
             >
               <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
@@ -125,7 +127,7 @@ export function Contact() {
             <a
               href="mailto:rggamingsolutions@gmail.com"
               className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all group"
-              aria-label="Enviar correo electrónico"
+              aria-label={t.contact.ariaEmail || t.footer.ariaEmail}
             >
               <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">

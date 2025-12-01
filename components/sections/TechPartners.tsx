@@ -2,8 +2,10 @@
 
 import Image from 'next/image';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useLanguage } from '@/components/LanguageProvider';
 
 export function TechPartners() {
+  const { t } = useLanguage();
   const brands = [
     { name: 'Fast Track', image: '/brands/fast-track-transformed.webp' },
     { name: 'Cellxpert', image: '/brands/cellxpert-logo.webp' },
@@ -35,9 +37,9 @@ export function TechPartners() {
       <div className="container mx-auto px-4 relative z-10">
         <div ref={ref} className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#5b7cff] via-[#8b5cf6] to-[#a855f7] bg-clip-text text-transparent">
-            Tecnologías y Partners
+            {t.partners.title}
           </h2>
-          <p className="text-gray-400 text-lg">Integraciones de clase mundial para máxima confiabilidad</p>
+          <p className="text-gray-400 text-lg">{t.partners.subtitle}</p>
         </div>
         
         <div className="space-y-8">

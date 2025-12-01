@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export function Hero() {
+  const { t } = useLanguage();
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export function Hero() {
           {/* Contenido de texto */}
           <div className="flex-1 max-w-3xl relative z-30">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-[1.1] animate-[slideUp_0.8s_ease-out]">
-              Plataforma iGaming Integral: Soluciones
+              {t.hero.title}{' '}
               <span
                 className="inline-block"
                 style={{
@@ -43,13 +45,12 @@ export function Hero() {
                   filter: "drop-shadow(0 0 30px rgba(91, 124, 255, 0.3))",
                 }}
               >
-                B2B para Operadores
+                {t.hero.titleHighlight}
               </span>
             </h1>
 
             <p className="text-base sm:text-xl  text-gray-300 mb-8 sm:mb-10 animate-[slideUp_1s_ease-out]">
-              Impulsa tu Casino o Sportsbook con tecnología de punta, alta
-              conversión y soporte experto 24/7
+              {t.hero.subtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-[fadeIn_1.2s_ease-out]">
@@ -58,7 +59,7 @@ export function Hero() {
                 className="group relative bg-linear-to-r from-[#5b7cff] via-[#7c5cff] to-[#8b5cf6] text-white px-8 sm:px-10 py-4 rounded-xl font-semibold transition-all duration-500 overflow-hidden shadow-lg shadow-[#5b7cff]/40 text-center hover:shadow-2xl hover:shadow-[#5b7cff]/60 hover:scale-105"
               >
                 <span className="relative z-10 group-hover:tracking-wider transition-all duration-300">
-                  Contáctanos
+                  {t.hero.cta}
                 </span>
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -74,7 +75,7 @@ export function Hero() {
                 className="group relative border-2 border-[#5b7cff] hover:border-transparent text-[#5b7cff] hover:text-white px-8 sm:px-10 py-4 rounded-xl font-semibold transition-all duration-500 overflow-hidden shadow-lg shadow-[#5b7cff]/30 bg-transparent text-center hover:scale-105"
               >
                 <span className="relative z-10 group-hover:tracking-wider transition-all duration-300">
-                  Únete ahora
+                  {t.hero.cta2}
                 </span>
                 <div className="absolute inset-0 bg-linear-to-r from-[#5b7cff] to-[#8b5cf6] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div
