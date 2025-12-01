@@ -52,7 +52,7 @@ export function About() {
         </p>
 
         <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-16 text-center max-w-4xl mx-auto">
-          {t.about.description.split('Eternelle System').map((part, i, arr) => (
+          {t.about.description.split('Eternelle System').map((part: string, i: number, arr: string[]) => (
             i < arr.length - 1 ? (
               <span key={i}>
                 {part}

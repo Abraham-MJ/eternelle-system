@@ -93,7 +93,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all group"
-              aria-label={t.contact.ariaWhatsApp || t.footer.ariaWhatsApp}
+              aria-label={t.footer.ariaWhatsApp}
             >
               <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
@@ -111,7 +111,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all group"
-              aria-label={t.contact.ariaTelegram || t.footer.ariaTelegram}
+              aria-label={t.footer.ariaTelegram}
             >
               <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
@@ -127,7 +127,7 @@ export function Contact() {
             <a
               href="mailto:rggamingsolutions@gmail.com"
               className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all group"
-              aria-label={t.contact.ariaEmail || t.footer.ariaEmail}
+              aria-label={t.footer.ariaEmail}
             >
               <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">

@@ -72,7 +72,7 @@ export function BusinessModel() {
         <div className="mb-20">
           <div className="lg:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
             <div className="flex gap-6 w-max">
-              {businessModels.map((model, index) => (
+              {businessModels.map((model: { title: string; subtitle: string; description: string }, index: number) => (
                 <div
                   key={index}
                   className="w-[300px] flex-shrink-0"
@@ -118,7 +118,7 @@ export function BusinessModel() {
 
           <div className="hidden lg:block max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-8 mb-8">
-              {businessModels.slice(0, 3).map((model, index) => (
+              {businessModels.slice(0, 3).map((model: { title: string; subtitle: string; description: string }, index: number) => (
                 <div
                   key={index}
                   className="h-[380px] perspective-1000 group"
@@ -168,7 +168,7 @@ export function BusinessModel() {
             </div>
             
             <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {businessModels.slice(3).map((model, index) => {
+              {businessModels.slice(3).map((model: { title: string; subtitle: string; description: string }, index: number) => {
                 const actualIndex = index + 3;
                 return (
                 <div

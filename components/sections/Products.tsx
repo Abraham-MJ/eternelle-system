@@ -79,7 +79,7 @@ export function Products() {
 
         <div className="lg:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
           <div className="flex gap-4 w-max">
-            {products.map((product, index) => (
+            {products.map((product: any, index: number) => (
               <div
                 key={index}
                 className="bg-[#1e1f35] rounded-2xl p-5 border border-gray-800 w-[280px] flex-shrink-0"
@@ -102,7 +102,7 @@ export function Products() {
 
         <div className="hidden lg:grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
-            {products.map((product, index) => (
+            {products.map((product: any, index: number) => (
               <div
                 key={index}
                 onMouseEnter={() => handleMouseEnter(index)}
